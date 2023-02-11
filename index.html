@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Dinamic Border*/
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+      }
+      #out-line {
+        width: 10%;
+        height: 6px;
+        background-color: black;
+        transition: 3s;
+        opacity: 0;
+        border-radius: 20px;
+      }
+
+      h1:hover ~ #out-line {
+        width: 100%;
+        opacity: 1;
+        border-radius: 20px;
+      }
+      /*dinamic border com after*/
+      #h1 {
+        text-align: center;
+        width: max-content;
+        font-size: 2rem;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      #h1::after {
+        content: "";
+        width: 10%;
+        height: 7px;
+        opacity: 0.3;
+        background-color: black;
+        display: block;
+        position: relative;
+        border-radius: 20px;
+        transition: 3s;
+      }
+
+      .box-1:hover #h1::after {
+        position: relative;
+        width: 100%;
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <h1>Dinamic Border</h1>
+      <div id="out-line"></div>
+    </div>
+    <div class="box-1">
+      <h1 id="h1">dinamic border com after</h1>
+    </div>
+  </body>
+  <!--
+  <script>
+    document.querySelector("h1").addEventListener("mouseover", () => {
+      document.getElementById("out-line").style.position = "relative";
+      document.getElementById("out-line").style.width = "100%";
+      document.getElementById("out-line").style.opacity = "1";
+      document.getElementById("out-line").style.borderRadius = "20px";
+      document.getElementById("out-line").style.transition = "3s";
+    });
+
+    document.querySelector("h1").addEventListener("mouseout", () => {
+      document.getElementById("out-line").style.position = "relative";
+      document.getElementById("out-line").style.width = "10%";
+      document.getElementById("out-line").style.transition = " all 3s";
+      document.getElementById("out-line").style.opacity = "0";
+      document.getElementById("out-line").style.borderRadius = "20px";
+    });
+  </script>
+--></html>
